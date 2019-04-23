@@ -1,0 +1,15 @@
+<li [ngClass]="{
+  'list-group-item': true,
+  'list-group-item-success': post.loveIts > 0,
+  'list-group-item-danger': post.loveIts < 0
+}">
+  <h4 class="list-group-item-heading">{{ post.title }}  </h4>
+    <span>{{ post.created_at | date:' le d/M/y' }}</span>
+  <hr />
+  <p class="list-group-item-content">{{ post.content }}</p>
+  <div class="mx-auto">
+    <input type = "button" class="btn btn-success" (click)="like()" value = "Like">
+    <input type = "button" class="btn btn-danger mx-3" (click)="dislike()" value = "Dislike">
+    
+  </div>
+</li>
