@@ -31,12 +31,14 @@ export class PostService {
   // increment loveIts attribute for post type
   like(post) {
    post.loveIts++;
+   this.savePostToServer()
     this.emitPostSubject();
   }
 
   //decrements loveIts attribute for post type
   dislike(post) {
     post.loveIts--;
+    this.savePostToServer()
     this.emitPostSubject();
   }
 
