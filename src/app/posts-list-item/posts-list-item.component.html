@@ -1,15 +1,19 @@
+<div *ngFor="let posts of post">
 <li [ngClass]="{
   'list-group-item': true,
-  'list-group-item-success': post.loveIts > 0,
-  'list-group-item-danger': post.loveIts < 0
+  'list-group-item-success': posts.loveIts > 0,
+  'list-group-item-danger': posts.loveIts < 0
 }">
-  <h4 class="list-group-item-heading">{{ post.title }}  </h4>
-    <span>{{ post.created_at | date:' le d/M/y' }}</span>
+  <h4 class="list-group-item-heading">{{ posts.title }}  </h4>
+    <span>{{ posts.created_at | date:' le d/M/y' }}</span>
   <hr />
-  <p class="list-group-item-content">{{ post.content }}</p>
+  <p class="list-group-item-content">{{ posts.content }}</p>
   <div class="mx-auto">
-    <input type = "button" class="btn btn-success" (click)="like()" value = "Like">
-    <input type = "button" class="btn btn-danger mx-3" (click)="dislike()" value = "Dislike">
-    
+    <input type = "button" class="btn btn-success" (click)="like(posts)" value = "Like">
+    <input type = "button" class="btn btn-danger mx-3" (click)="dislike(posts)" value = "Dislike"> 
+  </div>
+  <div class = mx-auto>
+    <input type="button" name="remove" class="pull-right btn btn-danger"  (click)="delete(posts)" value = "Remove" style = "margin-top:10px;">
   </div>
 </li>
+</div>
